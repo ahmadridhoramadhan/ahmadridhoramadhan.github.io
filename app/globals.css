@@ -16,12 +16,27 @@
   }
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=IBM+Plex+Mono&display=swap');
+
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+
+  font-family: 'Fira Code', monospace;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+body::-webkit-scrollbar {
+  width: 7px;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #4ADE80;
 }
