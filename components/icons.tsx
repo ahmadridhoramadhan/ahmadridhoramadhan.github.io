@@ -24,7 +24,7 @@ export function ChatIcon() {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-6 h-6">
+            className="w-full h-full">
             <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
