@@ -1,6 +1,7 @@
 import Footer from '@/components/layout/footer'
 import './globals.css'
 import type { Metadata } from 'next'
+import Header from '@/components/layout/header'
 
 export const metadata: Metadata = {
   title: 'Ahmad Ridho Ramadhan',
@@ -15,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className='flex flex-col min-h-screen'>
-        <header></header>
+        <Header />
         {children}
         <Footer />
       </body>
