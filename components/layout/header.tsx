@@ -1,55 +1,42 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { BurgerMenuIcon, ChatIcon, CloseIcon, HomeIcon, PersonIcon } from '../icons'
 import Link from 'next/link'
+
+import { BurgerMenuIcon, ChatIcon, CloseIcon, HomeIcon, PersonIcon } from '../icons'
+import { motion, Variants } from 'framer-motion'
+
+const variantsAnimation: Variants = {
+    open: {
+        width: 'auto'
+    },
+    closed: {
+        width: 0
+    }
+}
 
 export default function Header() {
     const [isNavOpen, setIsNavOpen] = useState(false)
-    const [nav, setNav] = useState(<div></div>)
+    const handleNav = () => setIsNavOpen((value) => !value)
+    return (
+        <header className={'fixed right-10 top-0 py-5 z-50'}>
+            <motion.nav className='flex'
+                initial={false}
+                animate={isNavOpen ? 'open' : 'closed'}
+            >
 
-    const handleNav = () => {
-        setIsNavOpen((value) => !value)
-    }
-
-    useEffect(() => {
-        const showNav = async () => {
-            if (isNavOpen) {
-                setNav(
+                <motion.div className={'flex items-center'} variants={variantsAnimation}>
                     <div className='flex gap-10 pr-10 w-full justify-end'>
                         <Link href={'/'} className='w-7 h-7'><HomeIcon /></Link>
                         <Link href={''} className='w-7 h-7'><ChatIcon /></Link>
                         <Link href={''} className='w-7 h-7'><PersonIcon /></Link>
                     </div>
-                )
-            } else {
-                setTimeout(() => {
-                    setNav(<div></div>)
-                }, 300);
-            }
-        }
-        showNav()
-    }, [isNavOpen])
+                </motion.div>
 
+                <motion.button className='block w-10 h-10' type='button' onClick={handleNav} whileTap={{ scale: 1.3 }}>
+                    {isNavOpen ? <CloseIcon /> : <BurgerMenuIcon />}
+                </motion.button>
 
-    return (
-        // <header className={'fixed right-10 top-0 py-5 z-50 flex items-center justify-end transition-all duration-300 ' + (isNavOpen ? 'w-60' : 'w-10')}>
-
-        //     {nav}
-
-        //     <button className='block w-10 h-10' type='button' onClick={handleNav}>
-        //         {isNavOpen ? <CloseIcon /> : <BurgerMenuIcon />}
-        //     </button>
-
-
-        // </header>
-        <header className={'fixed right-10 top-0 py-5 z-50 flex'}>
-            <div className={'flex items-center transition-all duration-300 ' + (isNavOpen ? 'w-60' : 'w-0')}>
-                {nav}
-            </div>
-
-            <button className='block w-10 h-10' type='button' onClick={handleNav}>
-                {isNavOpen ? <CloseIcon /> : <BurgerMenuIcon />}
-            </button>
+            </motion.nav>
         </header>
     )
 }
