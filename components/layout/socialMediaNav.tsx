@@ -1,7 +1,10 @@
+'use client'
 import Image from "next/image"
 import Link from "next/link"
 
-export default function SocialMediaNav() {
+import { motion } from 'framer-motion'
+
+export default function SocialMediaNav({ className }: { className?: string }) {
     const socialMediaLogos = [
         {
             alt: 'email',
@@ -30,21 +33,16 @@ export default function SocialMediaNav() {
         },
     ]
     return (
-        <>
+        <motion.div layoutId="socialMediaNav" layout="preserve-aspect" className={className}>
             {
                 socialMediaLogos.map((socialMediaLogo, i) => {
                     return (
                         <Link target="_blank" href={socialMediaLogo.href} className="relative w-7 h-7" key={i}>
-                            <Image
-                                alt={socialMediaLogo.alt}
-                                src={socialMediaLogo.src}
-                                className=""
-                                fill
-                            />
+                            <Image alt={socialMediaLogo.alt} src={socialMediaLogo.src} className="" fill />
                         </Link>
                     )
                 })
             }
-        </>
+        </motion.div>
     )
 }
