@@ -1,3 +1,4 @@
+
 import Footer from '@/components/layout/footer'
 import './globals.css'
 import type { Metadata } from 'next'
@@ -17,7 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <body className='flex flex-col min-h-screen'>
         <Header />
+
         {children}
+
         <Footer />
       </body>
     </html>

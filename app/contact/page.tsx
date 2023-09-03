@@ -4,13 +4,16 @@ import CustomInput from "@/components/inputs/custom";
 import CustomTextArea from "@/components/inputs/customTextArea";
 import SocialMediaNav from "@/components/layout/socialMediaNav";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Contact() {
+    const path = usePathname()
     return (
+
         <main className="flex-auto flex items-center justify-center">
-            <motion.div initial={{ x: -2000 }} animate={{ x: 0 }} transition={{ bounce: 1 }} exit={{ x: -1000 }} className="flex-auto p-5">
+            <motion.div initial={{ x: -2000 }} animate={{ x: 0 }} transition={{ bounce: 1 }} exit={{ y: -1000 }} key={path} className="flex-auto p-5">
                 <form action="" className="flex flex-col gap-10">
                     <CustomInput name="email" placeholder="Email" type="email" />
                     <CustomInput name="subject" placeholder="Subject" type="subject" />
@@ -28,5 +31,6 @@ export default function Contact() {
                 </motion.div>
             </div>
         </main>
+
     )
 }

@@ -31,7 +31,7 @@ export default function Header() {
                     <div className='flex gap-10 pr-10 w-full justify-end'>
                         <Link href={'/'} className={'w-7 h-7 hover:scale-110 transition-all hover:text-green-500' + (path == '/' ? ' text-green-500' : '')}><HomeIcon /></Link>
                         <Link href={'/contact'} className={'w-7 h-7 hover:scale-110 transition-all hover:text-green-500' + (path == '/contact' ? ' text-green-500' : '')}><ChatIcon /></Link>
-                        <Link href={''} className={'w-7 h-7 hover:scale-110 transition-all hover:text-green-500' + (path == '' ? ' text-green-500' : '')}><PersonIcon /></Link>
+                        <Link href={'/about'} className={'w-7 h-7 hover:scale-110 transition-all hover:text-green-500' + (path == '' ? ' text-green-500' : '')}><PersonIcon /></Link>
                     </div>
                 </motion.div>
 
