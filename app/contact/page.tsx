@@ -12,23 +12,16 @@ export default function Contact() {
     const path = usePathname()
     return (
 
-        <main className="flex-auto flex items-center justify-center">
-            <motion.div initial={{ x: -2000 }} animate={{ x: 0 }} transition={{ bounce: 1 }} exit={{ y: -1000 }} key={path} className="flex-auto p-5">
-                <form action="" className="flex flex-col gap-10">
+        <main className="flex-auto flex md:flex-row flex-col items-center justify-center overflow-hidden">
+            <motion.div initial={{ x: -2000 }} animate={{ x: 0 }} transition={{ bounce: 1 }} exit={{ y: -1000 }} key={path} className="md:flex-auto w-full p-4">
+                <form action="" className="flex flex-col gap-10 w-full">
                     <CustomInput name="email" placeholder="Email" type="email" />
                     <CustomInput name="subject" placeholder="Subject" type="subject" />
                     <CustomTextArea name="text" placeholder="Text" />
                 </form>
             </motion.div>
-            <div className="basis-5/12 overflow-hidden flex">
+            <div className="basis-5/12 overflow-hidden flex p-5">
                 <SocialMediaNav className="flex flex-col h-full gap-10 justify-center mb-5" />
-                <motion.div className="flex flex-col gap-11 ml-4 h-full overflow-hidden" initial={{ width: 0 }} animate={{ width: 'auto' }} transition={{ delay: 0.4 }}>
-                    <Link href={''} className="whitespace-nowrap">ahmad ridho ramadhan</Link>
-                    <Link href={''} className="whitespace-nowrap">ahmad ridho ramadhan</Link>
-                    <Link href={''} className="whitespace-nowrap">ahmad ridho ramadhan</Link>
-                    <Link href={''} className="whitespace-nowrap">ahmad ridho ramadhan</Link>
-                    <Link href={''} className="whitespace-nowrap">ahmad ridho ramadhan</Link>
-                </motion.div>
             </div>
         </main>
 

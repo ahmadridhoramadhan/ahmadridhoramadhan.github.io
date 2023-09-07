@@ -1,5 +1,7 @@
 export default function About() {
     return (
-        <main className="flex-auto">about</main>
+        <main className="flex-auto">
+
+        </main>
     )
 }

@@ -6,7 +6,7 @@ export default function Footer() {
     const path = usePathname()
     return (
         <footer className="bg-slate-900 p-5 text-center font-mono text-sm text-gray-400 mt-5 select-none z-40">
-            <div className={"relative md:fixed md:top-0 md:bottom-0 flex items-center " + (path == '/about' ? 'md:left-10' : 'md:right-10')}>
+            <div className={"relative md:fixed md:top-0 md:bottom-0 flex items-center justify-center " + (path == '/about' ? 'md:left-10' : 'md:right-10')}>
                 {
                     path == '/contact' ?
                         ''
