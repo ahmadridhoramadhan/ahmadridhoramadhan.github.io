@@ -6,11 +6,19 @@ import { BurgerMenuIcon, ChatIcon, CloseIcon, HomeIcon, PersonIcon } from '../ic
 import { motion, Variants } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 
-const variantsAnimation: Variants = {
+const navbarVariants: Variants = {
     open: {
         width: 'auto'
     },
     closed: {
+        width: 0
+    }
+}
+const iconVariants: Variants = {
+    hover: {
+        width: 'auto'
+    },
+    hidden: {
         width: 0
     }
 }
@@ -20,6 +28,24 @@ export default function Header() {
     const handleNav = () => setIsNavOpen((value) => !value)
     const path = usePathname()
 
+    const navs = [
+        {
+            title: 'Home',
+            path: '/',
+            icon: (<HomeIcon />)
+        },
+        {
+            title: 'About',
+            path: '/about',
+            icon: (<PersonIcon />)
+        },
+        {
+            title: 'Contact',
+            path: '/contact',
+            icon: (<ChatIcon />)
+        },
+    ]
+
     return (
         <header className={'fixed md:right-10 right-3 top-0 py-5 z-50'}>
             <motion.nav className='flex'
@@ -27,11 +53,18 @@ export default function Header() {
                 animate={isNavOpen ? 'open' : 'closed'}
             >
 
-                <motion.div className={'flex items-center'} variants={variantsAnimation}>
+                <motion.div className={'flex items-center'} variants={navbarVariants}>
                     <div className='flex md:gap-10 gap-5 md:pr-10 pr-5 w-full justify-end'>
-                        <Link href={'/'} className={'md:w-7 md:h-7 w-5 h-5 hover:scale-110 transition-all hover:text-green-500' + (path == '/' ? ' text-green-500' : '')}><HomeIcon /></Link>
-                        <Link href={'/contact'} className={'md:w-7 md:h-7 h-5 w-5 hover:scale-110 transition-all hover:text-green-500' + (path == '/contact' ? ' text-green-500' : '')}><ChatIcon /></Link>
-                        <Link href={'/about'} className={'md:w-7 md:h-7 h-5 w-5 hover:scale-110 transition-all hover:text-green-500' + (path == '/about' ? ' text-green-500' : '')}><PersonIcon /></Link>
+                        {
+                            navs.map((nav, i) => {
+                                return (
+                                    <motion.div whileHover={'hover'} className='md:w-7 md:h-7 w-5 h-5 relative flex items-center' key={i}>
+                                        <Link href={nav.path} className={'w-full h-full hover:scale-110 transition-all hover:text-green-500' + (path == nav.path ? ' text-green-500' : '')}>{nav.icon}</Link>
+                                        <motion.div initial={{ width: 0, padding: 0 }} variants={iconVariants} className='overflow-hidden absolute right-8 rounded bg-slate-800'>{nav.title}</motion.div>
+                                    </motion.div>
+                                )
+                            })
+                        }
                     </div>
                 </motion.div>
 
