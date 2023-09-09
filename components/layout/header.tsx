@@ -16,10 +16,12 @@ const navbarVariants: Variants = {
 }
 const iconVariants: Variants = {
     hover: {
-        width: 'auto'
+        display: 'block',
+        opacity: 1
     },
-    hidden: {
-        width: 0
+    init: {
+        display: 'none',
+        opacity: 0
     }
 }
 
@@ -58,9 +60,9 @@ export default function Header() {
                         {
                             navs.map((nav, i) => {
                                 return (
-                                    <motion.div whileHover={'hover'} className='md:w-7 md:h-7 w-5 h-5 relative flex items-center' key={i}>
+                                    <motion.div whileHover={'hover'} initial={'init'} className='md:w-7 md:h-7 w-5 h-5 relative flex items-center' key={i}>
                                         <Link href={nav.path} className={'w-full h-full hover:scale-110 transition-all hover:text-green-500' + (path == nav.path ? ' text-green-500' : '')}>{nav.icon}</Link>
-                                        <motion.div initial={{ width: 0, padding: 0 }} variants={iconVariants} className='overflow-hidden absolute right-8 rounded bg-slate-800'>{nav.title}</motion.div>
+                                        <motion.div variants={iconVariants} className='px-2 absolute right-5 top-6 rounded bg-slate-800'>{nav.title}</motion.div>
                                     </motion.div>
                                 )
                             })
@@ -72,7 +74,7 @@ export default function Header() {
                     {isNavOpen ? <CloseIcon /> : <BurgerMenuIcon />}
                 </motion.button>
 
-            </motion.nav>
-        </header>
+            </motion.nav >
+        </header >
     )
 }
