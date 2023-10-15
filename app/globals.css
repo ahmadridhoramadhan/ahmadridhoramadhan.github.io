@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -14,6 +14,12 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+} */
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=IBM+Plex+Mono&display=swap');
@@ -39,8 +45,4 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #4ADE80;
-}
-
-@keyframes nav {
-  
 }

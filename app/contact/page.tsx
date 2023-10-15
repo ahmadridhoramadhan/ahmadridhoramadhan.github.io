@@ -13,7 +13,7 @@ export default function Contact() {
     return (
 
         <main className="flex-auto flex md:flex-row flex-col items-center justify-center overflow-hidden">
-            <motion.div initial={{ x: -2000 }} animate={{ x: 0 }} transition={{ bounce: 1 }} exit={{ y: -1000 }} key={path} className="md:flex-auto w-full p-4">
+            <motion.div initial={{ x: -2000 }} animate={{ x: 0 }} transition={{ bounce: 1 }} exit={{ y: -1000 }} key={path} className="md:flex-auto w-full p-4 max-w-3xl">
                 <form action="" className="flex flex-col gap-10 w-full">
                     <CustomInput name="email" placeholder="Email" type="email" />
                     <CustomInput name="subject" placeholder="Subject" type="subject" />

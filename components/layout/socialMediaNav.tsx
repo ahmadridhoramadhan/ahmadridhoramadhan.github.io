@@ -59,7 +59,7 @@ export default function SocialMediaNav({ className }: { className?: string }) {
                                 <Image alt={socialMediaLogo.alt} src={socialMediaLogo.src} className="" fill />
                             </div>
 
-                            <motion.p variants={variantsAnimation} animate={path == '/contact' ? 'open' : 'closed'} initial={'closed'} transition={{ delay: 0.5 }} className="whitespace-nowrap overflow-hidden text-sm md:text-base">
+                            <motion.p variants={variantsAnimation} animate={path == '/contact' ? 'open' : 'closed'} initial='closed' transition={{ delay: 0.5, ease: 'linear', duration: 0.5 }} className="whitespace-nowrap overflow-hidden text-sm md:text-base">
                                 {socialMediaLogo.title}
                             </motion.p>
 
