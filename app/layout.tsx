@@ -19,12 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={fira_Code.className}>
-        <div className="flex flex-col min-h-screen bg-color-1 text-color-4">
-          <Header />
-          {children}
-          <Footer />
-        </div>
+      <body className={fira_Code.className + ' flex flex-col h-screen bg-color-1 text-color-4 '}>
+
+        <Header />
+        {children}
+        <Footer />
+
       </body>
     </html>
   );
