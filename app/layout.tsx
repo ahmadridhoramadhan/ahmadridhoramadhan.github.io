@@ -1,4 +1,3 @@
-'use client'
 import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
 import "./globals.css";
@@ -8,10 +7,10 @@ import Footer from "@/components/footer";
 
 const fira_Code = Fira_Code({ subsets: ["latin"] });
 
-// export const metadata: Metadata = {
-//   title: "Ahmad Ridho Ramadhan | portfolio",
-//   description: "Ahmad Ridho Ramadhan's portfolio website",
-// };
+export const metadata: Metadata = {
+  title: "Ahmad Ridho Ramadhan | portfolio",
+  description: "Ahmad Ridho Ramadhan's portfolio website",
+};
 
 export default function RootLayout({
   children,
