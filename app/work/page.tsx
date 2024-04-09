@@ -39,7 +39,7 @@ function Card({ imageSrc, title, date, description, demoLink }: { imageSrc: stri
                 </div>
                 <div className="m-2">
                     <p className="my-4 line-clamp-4">{description}</p>
-                    <Link href={demoLink} className="px-3 py-2 bg-color-2 rounded-md">visit-demo</Link>
+                    <Link href={demoLink} className="px-3 py-2 bg-color-2 rounded-md inline-block">visit-demo</Link>
                 </div>
             </div>
         </div>
