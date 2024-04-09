@@ -15,13 +15,6 @@ export default function Work() {
                 <div className="grid 2xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 container mx-auto px-5 gap-10">
                     <Card date="2022-2-4" demoLink="#" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, eum." imageSrc="/tetris.png" title="tetris-game" />
                     <Card date="2022-2-4" demoLink="#" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, eum." imageSrc="/tetris.png" title="tetris-game" />
-                    <Card date="2022-2-4" demoLink="#" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, eum." imageSrc="/tetris.png" title="tetris-game" />
-                    <Card date="2022-2-4" demoLink="#" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, eum." imageSrc="/tetris.png" title="tetris-game" />
-                    <Card date="2022-2-4" demoLink="#" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, eum." imageSrc="/tetris.png" title="tetris-game" />
-                    <Card date="2022-2-4" demoLink="#" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, eum." imageSrc="/tetris.png" title="tetris-game" />
-                    <Card date="2022-2-4" demoLink="#" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, eum." imageSrc="/tetris.png" title="tetris-game" />
-                    <Card date="2022-2-4" demoLink="#" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, eum." imageSrc="/tetris.png" title="tetris-game" />
-                    <Card date="2022-2-4" demoLink="#" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, eum." imageSrc="/tetris.png" title="tetris-game" />
                 </div>
             </div>
         </main>
@@ -35,6 +28,9 @@ function Card({ imageSrc, title, date, description, demoLink }: { imageSrc: stri
             <span className="text-color-3 text-sm"> / {date}</span>
             <div className="border-2 rounded-xl max-w-80">
                 <div className="relative aspect-video">
+                    <div className="bg-color-1 size-7 p-1 absolute top-2 right-2 z-10 rounded-md" >
+                        <IconReact />
+                    </div>
                     <Image fill src={imageSrc} alt={title} className="object-cover rounded-t-xl" />
                 </div>
                 <div className="m-2">
