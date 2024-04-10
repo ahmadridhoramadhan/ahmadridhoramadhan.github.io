@@ -3,11 +3,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconBurger, IconClose } from "./icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Header() {
     const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false)
     const pathname = usePathname();
+    useEffect(() => {
+        setIsBurgerMenuOpen(false);
+    }, [pathname]);
+
     return (
         <div className="relative">
             <header className="flex border-b-2 justify-between border-teal-800 select-none px-2">
