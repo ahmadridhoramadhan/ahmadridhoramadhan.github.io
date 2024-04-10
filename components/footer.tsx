@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <footer className="flex border-t-2 justify-between border-color-2 h-12 text-color-3">
             <SocialMedias />
-            <Link href={'https://github.com/ahmadridhoramadhan'} target="_blank" className="border-l-2 px-5 py-3 border-color-2 flex gap-1 items-center text-sm">
+            <Link href={'https://github.com/ahmadridhoramadhan'} target="_blank" className="border-l-2 px-5 py-3 border-color-2 gap-1 items-center text-sm hidden sm:flex">
                 @ahmadridhoramadhan <div className="size-6"><IconGithub /></div>
             </Link>
         </footer>
@@ -41,10 +41,11 @@ function SocialMedias() {
         },
     ]
     return (
-        <div className="flex divide-x-2 border-r-2 divide-color-2 border-color-2">
+        <div className="flex divide-x-2 sm:border-r-2 divide-color-2 border-color-2 w-full sm:w-auto justify-center sm:justify-start">
             {data.map((item, index) => (
                 <Link target="_blank" href={item.url} className="h-full p-3" key={index}>{item.icon}</Link>
             ))}
+            <Link target="_blank" href={'https://github.com/ahmadridhoramadhan'} className="h-full p-3 sm:hidden"><IconGithub /></Link>
         </div>
     )
 }
