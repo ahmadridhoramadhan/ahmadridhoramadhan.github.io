@@ -1,29 +1,31 @@
-import { IconCSS, IconLaravel, IconReact, IconVue } from "@/components/icons"
+import { IconReact } from "@/components/icons"
+import SidebarProjects from "@/components/sidebarProjects"
 import Image from "next/image"
 import Link from "next/link"
 
+import projects from "@/db/projects.json"
+
 export default function Work() {
     return (
-        <main className="flex-auto flex items-stretch overflow-clip select-none">
-            <div className="border-r-2 max-w-xs w-full border-color-2 pl-5 pt-5 space-y-4">
-                <FilterInput name="CSS" icon={<IconCSS />} />
-                <FilterInput name="laravel" icon={<IconLaravel />} />
-                <FilterInput name="react" icon={<IconReact />} />
-                <FilterInput name="Vue" icon={<IconVue />} />
-            </div>
-            <div className="py-10 w-full grow-0 overflow-y-scroll">
-                <div className="grid 2xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 container mx-auto px-5 gap-10">
-                    <Card date="2022-2-4" demoLink="#" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, eum." imageSrc="/tetris.png" title="tetris-game" />
-                    <Card date="2022-2-4" demoLink="#" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, eum." imageSrc="/tetris.png" title="tetris-game" />
+        <main className="flex-auto flex items-stretch overflow-clip select-none flex-col sm:flex-row">
+            <SidebarProjects />
+            <div className="py-10 w-full grow-0 overflow-y-auto">
+                <div className="grid 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 container mx-auto px-5 gap-10 mt-14 sm:mt-0">
+                    {
+                        projects.map((project) => (
+                            <CardProjects key={project.id} date={project.date} demoLink={project.url} description={project.description} imageSrc={project.image} title={project.name} />
+                        ))
+                    }
                 </div>
             </div>
+
         </main>
     )
 }
 
-function Card({ imageSrc, title, date, description, demoLink }: { imageSrc: string, title: string, date: string, description: string, demoLink: string }) {
+function CardProjects({ imageSrc, title, date, description, demoLink }: { imageSrc: string, title: string, date: string, description: string, demoLink: string }) {
     return (
-        <div className="justify-self-center">
+        <div className="justify-self-center w-full h-full">
             <span className="text-indigo-400 text-lg truncate max-w-44 inline-block">{title}</span>
             <span className="text-color-3 text-sm"> / {date}</span>
             <div className="border-2 rounded-xl max-w-80">
@@ -39,17 +41,5 @@ function Card({ imageSrc, title, date, description, demoLink }: { imageSrc: stri
                 </div>
             </div>
         </div>
-    )
-}
-
-function FilterInput({ label, name, value, icon }: { label?: string, name: string, value?: string, icon: JSX.Element }) {
-    return (
-        <label htmlFor={name} className="flex items-center">
-            <input type="checkbox" name={name} id={name} value={value ?? name} className="peer mr-3" />
-            <div className="peer-checked:opacity-100 opacity-50 hover:opacity-100 transition-all flex items-center gap-1">
-                <span className="inline-block size-6">{icon}</span>
-                <span>{label ?? name}</span>
-            </div>
-        </label>
     )
 }

@@ -71,3 +71,11 @@ export function IconClose() {
         </svg>
     )
 }
+
+export function IconTriangle() {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full" viewBox="0 0 9 7" fill="none">
+            <path d="M4.24998 6.37244L-3.10421e-05 0.372437L8.5 0.372437L4.24998 6.37244Z" fill="white" />
+        </svg>
+    )
+}
