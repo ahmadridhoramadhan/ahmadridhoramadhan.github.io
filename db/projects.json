@@ -5,7 +5,9 @@
         "description": "e-learning description",
         "url": "https://www.google.com",
         "image": "/tetris.png",
-        "category_id": "3",
+        "category_ids": [
+            "1"
+        ],
         "date": "2021-06-01"
     }
 ]
