@@ -1,15 +1,28 @@
+'use client'
 import { IconReact } from "@/components/icons"
 import SidebarProjects from "@/components/sidebarProjects"
 import Image from "next/image"
 import Link from "next/link"
 
-import projects from "@/db/projects.json"
+import DBprojects from "@/db/projects.json"
 import categories from "@/db/categories.json"
+import { useEffect, useState } from "react"
 
 export default function Work() {
+    const [selected, setSelected] = useState<any[]>([])
+    const [projects, setProjects] = useState<any[]>(DBprojects)
+
+    useEffect(() => {
+        let projects = DBprojects
+        if (selected.length > 0) {
+            projects = projects.filter(project => project.category_ids.some(category_id => selected.includes(category_id)))
+        }
+        setProjects(projects)
+    }, [selected])
+
     return (
         <main className="flex-auto flex items-stretch overflow-clip select-none flex-col sm:flex-row">
-            <SidebarProjects />
+            <SidebarProjects selected={setSelected} />
             <div className="py-10 w-full grow-0 overflow-y-auto">
                 <div className="grid 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 container mx-auto px-5 gap-10 mt-14 sm:mt-0">
                     {
