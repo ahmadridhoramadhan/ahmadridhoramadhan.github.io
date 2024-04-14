@@ -30,6 +30,12 @@ export default function Work() {
                             <CardProjects key={project.id} date={project.date} demoLink={project.url} description={project.description} imageSrc={project.image} title={project.name} project={project} />
                         ))
                     }
+                    {
+                        projects.map((project) => (
+                            <CardProjects key={project.id} date={project.date} demoLink={project.url} description={project.description} imageSrc={project.image} title={project.name} project={project} />
+                        ))
+                    }
+
                 </div>
             </div>
 
@@ -39,10 +45,10 @@ export default function Work() {
 
 function CardProjects({ imageSrc, title, date, description, demoLink, project }: { imageSrc: string, title: string, date: string, description: string, demoLink: string, project: any }) {
     return (
-        <div className="justify-self-center w-full h-full">
+        <div className="justify-self-center place-self-stretch min-w-80 h-full ">
             <span className="text-indigo-400 text-lg truncate max-w-44 inline-block">{title}</span>
             <span className="text-color-3 text-sm"> / {date}</span>
-            <div className="border-2 rounded-xl max-w-80">
+            <div className="border-2 rounded-xl max-w-80 relative">
                 <div className="relative aspect-video">
                     {project.category_ids.map((category_id: number) => {
                         const icon = categories[category_id].icon
@@ -58,7 +64,7 @@ function CardProjects({ imageSrc, title, date, description, demoLink, project }:
                 </div>
                 <div className="m-2">
                     <p className="my-4 line-clamp-4">{description}</p>
-                    <Link href={demoLink} className="px-3 py-2 bg-color-2 rounded-md inline-block">visit-demo</Link>
+                    <Link href={demoLink} className="px-3 py-2 bg-color-2 rounded-md inline-block ">visit-demo</Link>
                 </div>
             </div>
         </div >

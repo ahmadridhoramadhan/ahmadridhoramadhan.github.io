@@ -20,14 +20,10 @@ export default function SidebarProjects({ selected }: { selected: any }) {
         open: {
             height: 'auto',
             marginTop: '1rem',
-            // display: 'block',
-            // transition: { duration: 0.3 }
         },
         closed: {
             height: 0,
             marginTop: 0,
-            // display: 'none',
-            // transition: { duration: 0.3 }
         }
     }
 
