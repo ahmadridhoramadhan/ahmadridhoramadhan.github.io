@@ -30,12 +30,6 @@ export default function Work() {
                             <CardProjects key={project.id} date={project.date} demoLink={project.url} description={project.description} imageSrc={project.image} title={project.name} project={project} />
                         ))
                     }
-                    {
-                        projects.map((project) => (
-                            <CardProjects key={project.id} date={project.date} demoLink={project.url} description={project.description} imageSrc={project.image} title={project.name} project={project} />
-                        ))
-                    }
-
                 </div>
             </div>
 
