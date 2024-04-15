@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { IconEmail, IconFacebook, IconGithub, IconInstagram, IconLInkedin, IconTwitterOrX } from "./icons";
+import { IconGithub, IconInstagram, IconLInkedin } from "./icons";
 
 export default function Footer() {
     return (
@@ -13,39 +13,15 @@ export default function Footer() {
 }
 
 function SocialMedias() {
-    const data = [
-        {
-            name: 'Instagram',
-            icon: <IconInstagram />,
-            url: 'https://www.instagram.com/rdhormdahnn/'
-        },
-        {
-            name: 'Facebook',
-            icon: <IconFacebook />,
-            url: 'https://www.facebook.com/ahmadridho.ramadhan.35'
-        },
-        {
-            name: 'Twitter',
-            icon: <IconTwitterOrX />,
-            url: 'https://twitter.com/AHMADRIDHORAMA3'
-        },
-        {
-            name: 'Email',
-            icon: <IconEmail />,
-            url: 'https://www.instagram.com/ahmadridhoramadhan'
-        },
-        {
-            name: 'Linkedin',
-            icon: <IconLInkedin />,
-            url: 'https://www.linkedin.com/in/ahmad-ridho-ramadhan/'
-        },
-    ]
     return (
         <div className="flex divide-x-2 sm:border-r-2 divide-color-2 border-color-2 w-full sm:w-auto justify-center sm:justify-start">
-            {data.map((item, index) => (
-                <Link target="_blank" href={item.url} className="h-full p-3" key={index}>{item.icon}</Link>
-            ))}
+            <div className="flex items-center px-3 flex-auto sm:flex-none">
+                find me in:
+            </div>
+            <Link target="_blank" href={'https://www.linkedin.com/in/ahmad-ridho-ramadhan/'} className="h-full p-3"> <IconLInkedin /></Link>
+            <Link target="_blank" href={'https://www.instagram.com/rdhormdahnn/'} className="h-full p-3"> <IconInstagram /></Link>
             <Link target="_blank" href={'https://github.com/ahmadridhoramadhan'} className="h-full p-3 sm:hidden"><IconGithub /></Link>
         </div>
+
     )
 }

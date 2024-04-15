@@ -24,43 +24,38 @@ export default function Work() {
         <main className="flex-auto flex items-stretch overflow-clip select-none flex-col sm:flex-row">
             <SidebarProjects selected={setSelected} />
             <div className="py-10 w-full grow-0 overflow-y-auto">
-                <div className="grid 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 container mx-auto px-5 gap-10 mt-14 sm:mt-0">
+                <div className="max-w-2xl mx-auto px-3 space-y-10 mt-10">
                     {
                         projects.map((project) => (
-                            <CardProjects key={project.id} date={project.date} demoLink={project.url} description={project.description} imageSrc={project.image} title={project.name} project={project} />
+                            <CardProjects project={project} key={project.id} />
                         ))
                     }
                 </div>
             </div>
 
-        </main>
+        </main >
     )
 }
 
-function CardProjects({ imageSrc, title, date, description, demoLink, project }: { imageSrc: string, title: string, date: string, description: string, demoLink: string, project: any }) {
+function CardProjects({ project }: { project: any }) {
     return (
-        <div className="justify-self-center place-self-stretch min-w-80 h-full ">
-            <span className="text-indigo-400 text-lg truncate max-w-44 inline-block">{title}</span>
-            <span className="text-color-3 text-sm"> / {date}</span>
-            <div className="border-2 rounded-xl max-w-80 relative">
-                <div className="relative aspect-video">
-                    {project.category_ids.map((category_id: number) => {
-                        const icon = categories[category_id].icon
-                        if (icon == '') {
-                            return ''
-                        } else {
-                            <div className="bg-color-1 size-7 p-1 absolute top-2 right-2 z-10 rounded-md" key={category_id} dangerouslySetInnerHTML={{ __html: categories[category_id].icon }}></div>
-                        }
-
-                    }
+        <Link href={project.url} target="_blank" key={project.id} className="flex gap-4 items-start w-full group">
+            <div className="relative aspect-video md:w-32 w-24 mt-2 shrink-0">
+                <Image fill src={project.image} alt={project.name} className="object-cover rounded-md" />
+            </div>
+            <div>
+                <h2 className="text-xl text-pretty">{project.name}</h2>
+                <p className="text-color-3 mt-3">{project.description}</p>
+                <div className="mt-2 flex gap-2 flex-wrap">
+                    {project.category_ids.map((category_id: number) => (
+                        <span key={category_id} className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-sm text-purple-700" >
+                            {categories[category_id].name}
+                        </span>
+                    )
                     )}
-                    <Image fill src={imageSrc} alt={title} className="object-cover rounded-t-xl" />
-                </div>
-                <div className="m-2">
-                    <p className="my-4 line-clamp-4">{description}</p>
-                    <Link href={demoLink} className="px-3 py-2 bg-color-2 rounded-md inline-block ">visit-demo</Link>
                 </div>
             </div>
-        </div >
+        </Link>
+
     )
 }
