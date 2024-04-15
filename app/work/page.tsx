@@ -4,16 +4,17 @@ import SidebarProjects from "@/components/sidebarProjects"
 import Image from "next/image"
 import Link from "next/link"
 
-import DBprojects from "@/db/projects.json"
-import categories from "@/db/categories.json"
+import DBprojects from "@/utils/db/projects.json"
+import categories from "@/utils/db/categories.json"
 import { useEffect, useState } from "react"
+import Project from "@/utils/interface/project"
 
 export default function Work() {
-    const [selected, setSelected] = useState<any[]>([])
-    const [projects, setProjects] = useState<any[]>(DBprojects)
+    const [selected, setSelected] = useState<number[]>([])
+    const [projects, setProjects] = useState<Project[]>(DBprojects)
 
     useEffect(() => {
-        let projects = DBprojects
+        let projects: Project[] = DBprojects
         if (selected.length > 0) {
             projects = projects.filter(project => project.category_ids.some(category_id => selected.includes(category_id)))
         }
@@ -26,7 +27,7 @@ export default function Work() {
             <div className="py-10 w-full grow-0 overflow-y-auto">
                 <div className="max-w-2xl mx-auto px-1 space-y-10 mt-10">
                     {
-                        projects.map((project) => (
+                        projects.map((project: Project) => (
                             <CardProjects project={project} key={project.id} />
                         ))
                     }
@@ -37,7 +38,7 @@ export default function Work() {
     )
 }
 
-function CardProjects({ project }: { project: any }) {
+function CardProjects({ project }: { project: Project }) {
     return (
         <Link href={project.url} target="_blank" key={project.id} className="flex gap-4 items-start w-full group flex-col sm:flex-row transition-all hover:bg-color-2/30 rounded-md py-3 px-2">
             <div className="relative aspect-video md:w-32 sm:w-24 w-40 mt-2 shrink-0 order-2 sm:order-1">

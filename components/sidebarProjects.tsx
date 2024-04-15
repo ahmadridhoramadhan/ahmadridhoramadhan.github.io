@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IconTriangle } from "./icons"
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
-import categories from '@/db/categories.json'
+import categories from '@/utils/db/categories.json'
 
 export default function SidebarProjects({ selected }: { selected: any }) {
     const [isProjectsMenuOpen, setIspProjectsMenuOpen] = useState(true);
@@ -12,7 +12,7 @@ export default function SidebarProjects({ selected }: { selected: any }) {
     const setSelected = () => {
         const selectedCategories = document.querySelectorAll('input[type="checkbox"]:checked')
         let selectedValue: number[] = [];
-        selectedCategories.forEach((categoryElement: any) => selectedValue.push(categoryElement.value))
+        selectedCategories.forEach((categoryElement: any) => selectedValue.push(Number(categoryElement.value)))
         selected(selectedValue)
     }
 
@@ -50,7 +50,7 @@ function CheckboxInput({ label, name, value, icon, id, setSelected }: { label?: 
                     <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                 </svg>
             </div>
-            <div className="size-7 rounded-md bg-color-2 opacity-40 peer-checked:opacity-100 mr-3 peer-checked:hidden"></div>
+            <div className="size-7 rounded-md border opacity-40 peer-checked:opacity-100 mr-3 peer-checked:hidden"></div>
             <div className="peer-checked:opacity-100 opacity-40 hover:opacity-100 transition-all flex items-center gap-1">
                 {
                     icon == '' ? '' :
