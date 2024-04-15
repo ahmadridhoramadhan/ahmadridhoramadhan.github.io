@@ -24,7 +24,7 @@ export default function Work() {
         <main className="flex-auto flex items-stretch overflow-clip select-none flex-col sm:flex-row">
             <SidebarProjects selected={setSelected} />
             <div className="py-10 w-full grow-0 overflow-y-auto">
-                <div className="max-w-2xl mx-auto px-3 space-y-10 mt-10">
+                <div className="max-w-2xl mx-auto px-1 space-y-10 mt-10">
                     {
                         projects.map((project) => (
                             <CardProjects project={project} key={project.id} />
@@ -39,12 +39,15 @@ export default function Work() {
 
 function CardProjects({ project }: { project: any }) {
     return (
-        <Link href={project.url} target="_blank" key={project.id} className="flex gap-4 items-start w-full group">
-            <div className="relative aspect-video md:w-32 w-24 mt-2 shrink-0">
+        <Link href={project.url} target="_blank" key={project.id} className="flex gap-4 items-start w-full group flex-col sm:flex-row transition-all hover:bg-color-2/30 rounded-md py-3 px-2">
+            <div className="relative aspect-video md:w-32 sm:w-24 w-40 mt-2 shrink-0 order-2 sm:order-1">
                 <Image fill src={project.image} alt={project.name} className="object-cover rounded-md" />
             </div>
-            <div>
-                <h2 className="text-xl text-pretty">{project.name}</h2>
+            <div className="sm:order-2">
+                <div className="flex items-end gap-4">
+                    <h2 className="text-xl text-pretty">{project.name}</h2>
+                    <span className="text-xs text-color-3/80">{project.date}</span>
+                </div>
                 <p className="text-color-3 mt-3">{project.description}</p>
                 <div className="mt-2 flex gap-2 flex-wrap">
                     {project.category_ids.map((category_id: number) => (
