@@ -27,7 +27,7 @@ export default function Work() {
             <div className="py-10 w-full grow-0 overflow-y-auto">
                 <div className="max-w-2xl mx-auto px-1 space-y-10 mt-10">
                     {
-                        projects.map((project: Project) => (
+                        [...projects].reverse().map((project: Project) => (
                             <CardProjects project={project} key={project.id} />
                         ))
                     }
