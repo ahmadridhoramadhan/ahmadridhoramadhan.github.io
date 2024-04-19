@@ -7,7 +7,7 @@ export default function Contact() {
             <SidebarContact />
             <div className="overflow-auto w-full">
                 <div className="container mx-auto flex justify-center items-center h-full flex-col">
-                    <form className='shrink-0 max-w-md w-full space-y-4'>
+                    <form className='shrink-0 max-w-md w-full space-y-4 px-2'>
                         <div>
                             <label htmlFor="name">name:</label>
                             <input type="text" name="name" id="name" className='w-full border border-color-2 bg-transparent rounded-md py-1 pl-2 pr-1 ring-0 outline-none focus:border-color-3 transition-colors' />
@@ -31,7 +31,7 @@ export default function Contact() {
 function SidebarContact() {
     const dropdownItemsStyle = "flex items-center gap-2 opacity-50 hover:opacity-100 transition-opacity"
     return (
-        <aside className="sm:border-r-2 border-0 max-w-xs w-full border-color-2 *:border-color-2 py-1 *:py-2 *:pl-2">
+        <aside className="sm:border-r-2 border-0 max-w-xs w-full border-color-2 *:border-color-2 py-1 *:py-2 *:pl-2 pb-5">
             <Dropdown title='Contacts'>
                 <li className={dropdownItemsStyle}><Link href={''} className='text-sm'>ahmadridhoramadhan2.gmail.com</Link></li>
                 <li className={dropdownItemsStyle}><Link href={''}>+62 882-0205-39449</Link></li>

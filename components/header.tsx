@@ -15,7 +15,7 @@ export default function Header() {
     const pagesList = [
         { name: 'home', path: '/' },
         { name: 'my-work', path: '/work' },
-        { name: 'about', path: '/about' }
+        // { name: 'about', path: '/about' }
     ]
 
     return (
