@@ -24,7 +24,10 @@ export default function Work() {
     return (
         <main className="flex-auto flex items-stretch overflow-clip select-none flex-col sm:flex-row">
             <Sidebar selected={setSelected} />
-            <div className="py-10 w-full grow-0 overflow-y-auto">
+            <div className="py-10 w-full grow-0 overflow-y-auto relative">
+                <div className="absolute lg:left-3 text-color-3 right-2 top-2 z-20">
+                    result : {projects.length}
+                </div>
                 <div className="max-w-2xl mx-auto px-1 space-y-10 mt-10">
                     {
                         [...projects].reverse().map((project: Project) => (

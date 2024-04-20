@@ -1,5 +1,4 @@
-import Link from 'next/link'
-import { Dropdown } from '../../components/Dropdown'
+import { SidebarContact } from './SidebarContact'
 
 export default function Contact() {
     return (
@@ -28,20 +27,4 @@ export default function Contact() {
     )
 }
 
-function SidebarContact() {
-    const dropdownItemsStyle = "flex items-center gap-2 opacity-50 hover:opacity-100 transition-opacity"
-    return (
-        <aside className="sm:border-r-2 border-0 max-w-xs w-full border-color-2 *:border-color-2 py-1 *:py-2 *:pl-2 pb-5">
-            <Dropdown title='Contacts'>
-                <li className={dropdownItemsStyle}><Link href={''} className='text-sm'>ahmadridhoramadhan2.gmail.com</Link></li>
-                <li className={dropdownItemsStyle}><Link href={''}>+62 882-0205-39449</Link></li>
-            </Dropdown>
-            <Dropdown title='find-me-also-in'>
-                <li className={dropdownItemsStyle}>Linkedin</li>
-                <li className={dropdownItemsStyle}>Instagram</li>
-                <li className={dropdownItemsStyle}>Github</li>
-                <li className={dropdownItemsStyle}>Whatsapp</li>
-            </Dropdown>
-        </aside>
-    )
-}
+

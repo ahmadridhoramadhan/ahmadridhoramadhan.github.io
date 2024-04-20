@@ -1,9 +1,3 @@
-'use client'
-
-import { useState } from "react";
-import { IconTriangle } from "../../components/icons"
-import { motion } from "framer-motion";
-
 import categories from '@/utils/db/categories.json'
 import { Dropdown } from "../../components/Dropdown";
 
@@ -16,15 +10,8 @@ export default function Sidebar({ selected }: { selected: any }) {
     }
 
     return (
-        <div className="lg:border-r-2 lg:max-w-xs w-full border-color-2 pl-5 pt-5 lg:block absolute lg:static z-20 backdrop-blur-md lg:backdrop-blur-0 pb-4">
+        <div className="lg:border-r-2 lg:max-w-xs w-full border-color-2 pl-3 *:py-1 pt-3 lg:block absolute lg:static z-20 backdrop-blur-md lg:backdrop-blur-0 pb-4 overflow-auto">
             <Dropdown title="projects">
-                {categories.map(category => (
-                    <li key={category.id} className="mt-2 last:mb-2">
-                        <CheckboxInput name={category.name} icon={category.icon} id={category.id} setSelected={setSelected} />
-                    </li>
-                ))}
-            </Dropdown>
-            <Dropdown title="my-code">
                 {categories.map(category => (
                     <li key={category.id} className="mt-2 last:mb-2">
                         <CheckboxInput name={category.name} icon={category.icon} id={category.id} setSelected={setSelected} />
@@ -55,6 +42,3 @@ function CheckboxInput({ label, name, value, icon, id, setSelected }: { label?: 
         </label>
     )
 }
-
-// TODO: replace title with show case
-//  make new dropdown for template
