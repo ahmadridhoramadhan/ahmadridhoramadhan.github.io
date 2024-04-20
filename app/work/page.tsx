@@ -1,6 +1,6 @@
 'use client'
 import { IconReact } from "@/components/icons"
-import SidebarProjects from "@/components/sidebarProjects"
+import Sidebar from "@/app/work/sidebar"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -23,7 +23,7 @@ export default function Work() {
 
     return (
         <main className="flex-auto flex items-stretch overflow-clip select-none flex-col sm:flex-row">
-            <SidebarProjects selected={setSelected} />
+            <Sidebar selected={setSelected} />
             <div className="py-10 w-full grow-0 overflow-y-auto">
                 <div className="max-w-2xl mx-auto px-1 space-y-10 mt-10">
                     {
